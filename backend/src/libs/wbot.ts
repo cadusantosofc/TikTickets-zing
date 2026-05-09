@@ -516,7 +516,8 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<WbotSession> => {
             }),
             takeoverOnConflict: true,
             puppeteer: {
-              executablePath: process.env.CHROME_BIN || "/usr/bin/google-chrome-stable",
+              executablePath: process.env.CHROME_BIN || "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+              headless: false,
               args: args,
               defaultViewport: null,
               timeout: 120000,
@@ -618,7 +619,7 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<WbotSession> => {
 
             watchdogTimer = setTimeout(async () => {
               if (!readyFired) {
-                logger.warn(`[WATCHDOG] Alerta: Evento 'ready' não disparou em 15s para sessão ${whatsapp.id}. Verificando conexão real...`);
+                logger.warn(`[WATCHDOG] Alerta: Evento 'ready' não disparou em 60s para sessão ${whatsapp.id}. Verificando conexão real...`);
                 const isConnected = await verifyRealConnection(wbot);
 
                 if (isConnected) {
@@ -628,7 +629,7 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<WbotSession> => {
                   logger.warn(`[WATCHDOG] Conexão não confirmada via Watchdog. Mantendo aguardo.`);
                 }
               }
-            }, 15000);
+            }, 60000);
           };
 
           // Adiciona manipuladores de eventos para encerramento adequado

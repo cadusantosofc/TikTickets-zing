@@ -254,12 +254,13 @@ const clearCache = () => {
 }
 
 .card-modern {
-  background: rgba(255, 255, 255, 0.92) !important;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(23, 25, 35, 0.85) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-radius: 28px !important;
-  border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+  color: #ffffff !important;
 }
 
 /* Slide In Animation */
@@ -278,35 +279,47 @@ const clearCache = () => {
 .logo-img {
   height: 80px;
   max-width: 180px;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.2));
 }
 
 /* === Modern Input Styling - Override Quasar Outlined === */
 .input-modern.q-field--outlined :deep(.q-field__control) {
   border-radius: 12px !important;
-  background: #ffffff !important;
+  background: rgba(255, 255, 255, 0.05) !important;
 }
 
-.input-modern.q-field--outlined :deep(.q-field__control::before),
+.input-modern.q-field--outlined :deep(.q-field__control::before) {
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 12px !important;
+}
+
 .input-modern.q-field--outlined :deep(.q-field__control::after) {
-  border: 1px solid #d1d5db !important;
   border-radius: 12px !important;
 }
 
 .input-modern.q-field--outlined:hover :deep(.q-field__control::before) {
-  border-color: #3e72af !important;
+  border-color: var(--q-primary) !important;
 }
 
 .input-modern.q-field--outlined.q-field--focused :deep(.q-field__control::after) {
-  border: 2px solid #3e72af !important;
-  border-radius: 12px !important;
+  border: 2px solid var(--q-primary) !important;
 }
 
-.input-modern :deep(.q-field__native) {
-  color: #1e293b !important;
+.input-modern :deep(.q-field__native),
+.input-modern :deep(.q-field__prefix),
+.input-modern :deep(.q-field__suffix),
+.input-modern :deep(.q-field__input) {
+  color: #ffffff !important;
 }
 
 .input-modern :deep(.q-field__native::placeholder) {
-  color: #9ca3af !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Adjusting labels and icons inside inputs */
+.input-modern :deep(.q-field__label),
+.input-modern :deep(.q-field__bottom) {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 /* === Modern Button Styling === */
@@ -316,21 +329,26 @@ const clearCache = () => {
   text-transform: none;
   padding: 12px 24px;
   transition: all 0.3s ease;
+  background: var(--q-primary) !important;
 }
 
 .btn-modern:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(62, 114, 175, 0.35);
+  box-shadow: 0 8px 25px rgba(var(--q-primary), 0.4);
+  filter: brightness(1.1);
 }
 
 .btn-modern-outline {
   border-radius: 12px !important;
   text-transform: none;
   transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.7) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 .btn-modern-outline:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff !important;
 }
 
 /* === Footer Contact === */
@@ -342,7 +360,7 @@ const clearCache = () => {
   display: inline-flex;
   align-items: center;
   text-decoration: none;
-  color: #1e293b;
+  color: rgba(255, 255, 255, 0.8);
   transition: all 0.3s ease;
   padding: 6px 12px;
   border-radius: 8px;
@@ -351,6 +369,19 @@ const clearCache = () => {
 .contact-link:hover {
   background: rgba(37, 211, 102, 0.1);
   color: #25d366;
+}
+
+/* Text adjustments for dark theme */
+.text-grey-7 {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.text-grey-6 {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.q-separator {
+  background: rgba(255, 255, 255, 0.1) !important;
 }
 
 /* === Responsive Design === */
